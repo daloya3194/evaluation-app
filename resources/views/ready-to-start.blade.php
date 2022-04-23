@@ -13,7 +13,7 @@
 
         <div class="flex justify-center gap-5 mx-auto text-center mt-10">
             <a href="{{ route('demo-task') }}" class="uppercase font-bold text-white bg-red-600 hover:bg-red-500 py-4 px-24 rounded-lg">no</a>
-            <a href="{{ route('question-one') }}" class="uppercase font-bold text-white bg-green-600 hover:bg-green-500 py-4 px-24 rounded-lg">yes</a>
+            <a href="{{ route('question-1') }}" class="uppercase font-bold text-white bg-green-600 hover:bg-green-500 py-4 px-24 rounded-lg">yes</a>
         </div>
     </div>
 @endsection

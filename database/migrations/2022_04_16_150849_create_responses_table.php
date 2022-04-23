@@ -19,6 +19,7 @@ class CreateResponsesTable extends Migration
             $table->foreignId('participant_id')->nullable()->constrained()->onDelete('no action');
             $table->foreignId('image_id')->nullable()->constrained()->onDelete('no action');
             $table->time('time')->nullable();
+            $table->boolean('true')->nullable();
             $table->timestamps();
         });
     }

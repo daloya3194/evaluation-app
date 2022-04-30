@@ -13,6 +13,7 @@ class AdminController extends Controller
 {
     public function index()
     {
+        cache()->forget('images');
         return view('admin', [
             'clusters' => Cluster::all()
         ]);
@@ -34,7 +35,7 @@ class AdminController extends Controller
         }
     }
 
-    public function save_image($image, $folder): array
+    private function save_image($image, $folder): array
     {
         $date = Carbon::now('Europe/Berlin');
         $nameWithoutExtension = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
@@ -49,7 +50,7 @@ class AdminController extends Controller
         ];
     }
 
-    public function validator(array $data)
+    private function validator(array $data)
     {
         return Validator::make($data, [
             'images.*' => 'required',

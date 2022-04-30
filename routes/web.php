@@ -39,6 +39,9 @@ Route::get('/question-6', [\App\Http\Controllers\QuestionController::class, 'que
 //Route::post('/question-6', [\App\Http\Controllers\QuestionController::class, 'question_6_submit'])->name('question-6-submit');
 
 
+Route::post('/question-submit', [\App\Http\Controllers\QuestionController::class, 'question_submit'])->name('question-submit');
+
+
 //admin
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 Route::post('/admin/upload-image', [\App\Http\Controllers\AdminController::class, 'upload_image'])->name('upload-image');

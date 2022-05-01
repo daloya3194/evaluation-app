@@ -16,6 +16,11 @@ class Image extends Model
         return $this->belongsTo(Cluster::class);
     }
 
+    public function question()
+    {
+        return $this->hasOne(Question::class);
+    }
+
     public function response()
     {
         return $this->hasMany(Response::class);

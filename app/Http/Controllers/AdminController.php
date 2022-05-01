@@ -33,6 +33,8 @@ class AdminController extends Controller
                 'path' => $saved_picture['path'],
             ]);
         }
+
+        return redirect(route('admin'));
     }
 
     private function save_image($image, $folder): array

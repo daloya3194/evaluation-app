@@ -14,13 +14,21 @@ function verifyImage(image_id, submit_url, next_question) {
         type: 'post',
         success: function (result) {
             if (result.response) {
-                window.location.href = result.url
+                if (parseInt(next_question) === 1) {
+                    window.location.href = $('#route_ready_to_start').val()
+                } else if (parseInt(next_question) === 7){
+                    window.location.href = $('#route_ready_to_start').val()
+                } else if (parseInt(next_question) === 13) {
+                    window.location.href = $('#ending').val()
+                } else {
+                    window.location.href = result.url
+                }
             } else {
                 const error_div = $('#error')
                 error_div.removeClass('hidden')
                 setTimeout(function () {
                     error_div.addClass('hidden')
-                }, 2000)
+                }, 1000)
             }
         }
     })

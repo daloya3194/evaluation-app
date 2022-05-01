@@ -20,4 +20,9 @@ class Question extends Model
     {
         return $this->hasMany(Response::class);
     }
+
+    public function image()
+    {
+        return $this->belongsTo(Image::class);
+    }
 }

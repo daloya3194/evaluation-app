@@ -12,7 +12,7 @@
         <br>
 
         <div>
-            <form action="{{ route('question-1-submit') }}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <br>
                 <input type="hidden" value="{{ $question['id'] }}" name="question_id" id="question_id">
@@ -24,18 +24,13 @@
                             <div class="bg-black">
                                 <input class="sr-only peer" onclick="verifyImage({{ $image->id }}, '{{ route('question-submit') }}', 2)" type="radio" value="{{ $image->id }}" name="image_id" id="{{ 'image_' . $image->id }}" required>
                                 <label class="flex p-1 bg-white cursor-pointer hover:ring-yellow-500 peer-checked:ring-yellow-500 peer-checked:ring-2 peer-checked:border-transparent" for="{{ 'image_' . $image->id }}">
-                                    <img src="{{ $image->path }}" class="h-64 w-64 object-cover" alt="{{ $image->name }}">
+                                    <img src="{{ $image->path }}" class="h-64 w-64 object-cover hover:scale-105" alt="{{ $image->name }}">
                                 </label>
                             </div>
                         @endforeach
                     @endisset
                 </div>
                 <br>
-                {{--<div>
-                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-500 hover:bg-gray-600">
-                        Submit
-                    </button>
-                </div>--}}
                 <br>
             </form>
         </div>

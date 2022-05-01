@@ -85,8 +85,8 @@ class QuestionController extends Controller
 
     private function getShuffleImages()
     {
-        return Image::all();
-//        return Image::all()->shuffle();
+//        return Image::all();
+        return Image::all()->shuffle();
     }
 
     private function getImagesPerCluster()

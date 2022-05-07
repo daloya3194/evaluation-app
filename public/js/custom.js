@@ -25,9 +25,18 @@ function verifyImage(image_id, submit_url, next_question) {
                 }
             } else {
                 const error_div = $('#error')
+                const error_div_1 = $('#error-1')
+                const error_div_2 = $('#error-2')
+                const error_div_3 = $('#error-3')
                 error_div.removeClass('hidden')
+                error_div_1.removeClass('hidden')
+                error_div_2.removeClass('hidden')
+                error_div_3.removeClass('hidden')
                 setTimeout(function () {
                     error_div.addClass('hidden')
+                    error_div_1.addClass('hidden')
+                    error_div_2.addClass('hidden')
+                    error_div_3.addClass('hidden')
                 }, 1000)
             }
         }

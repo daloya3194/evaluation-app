@@ -85,6 +85,7 @@ class QuestionController extends Controller
 
     private function getShuffleImages()
     {
+        //Activer ou desactiver le melange de l'image
 //        return Image::all();
         return Image::all()->shuffle();
     }
@@ -101,64 +102,4 @@ class QuestionController extends Controller
             'cluster_3' => $cluster_3,
         ];
     }
-
-    /*    private function getImage($number_image_cluster_1, $number_image_cluster_2, $number_image_cluster_3, $number_image_cluster_4, $number_image_cluster_5)
-    {
-        $images_1 = Image::inRandomOrder()->where('cluster_id', 1)->take($number_image_cluster_1)->get();
-        $images_2 = Image::inRandomOrder()->where('cluster_id', 2)->take($number_image_cluster_2)->get();
-        $images_3 = Image::inRandomOrder()->where('cluster_id', 3)->take($number_image_cluster_3)->get();
-        $images_4 = Image::inRandomOrder()->where('cluster_id', 4)->take($number_image_cluster_4)->get();
-        $images_5 = Image::inRandomOrder()->where('cluster_id', 5)->take($number_image_cluster_5)->get();
-
-        $images_collection = new Collection();
-
-        foreach ($images_1 as $image) {
-            $images_collection->push($image);
-        }
-
-        foreach ($images_2 as $image) {
-            $images_collection->push($image);
-        }
-
-        foreach ($images_3 as $image) {
-            $images_collection->push($image);
-        }
-
-        foreach ($images_4 as $image) {
-            $images_collection->push($image);
-        }
-
-        foreach ($images_5 as $image) {
-            $images_collection->push($image);
-        }
-
-        return $images_collection;
-    }*/
-
-    /*    private function getImagePerCluster($number_image_cluster_1, $number_image_cluster_2, $number_image_cluster_3, $number_image_cluster_4, $number_image_cluster_5)
-        {
-            $images_1 = Image::inRandomOrder()->where('cluster_id', 1)->take($number_image_cluster_1)->get();
-            $images_2 = Image::inRandomOrder()->where('cluster_id', 2)->take($number_image_cluster_2)->get();
-            $images_3 = Image::inRandomOrder()->where('cluster_id', 3)->take($number_image_cluster_3)->get();
-            $images_4 = Image::inRandomOrder()->where('cluster_id', 4)->take($number_image_cluster_4)->get();
-            $images_5 = Image::inRandomOrder()->where('cluster_id', 5)->take($number_image_cluster_5)->get();
-
-            $images_collection = new Collection();
-            $images_collection->push($images_1);
-            $images_collection->push($images_2);
-            $images_collection->push($images_3);
-            $images_collection->push($images_4);
-            $images_collection->push($images_5);
-
-            $collection_2 = new Collection();
-            $images_collection_shuffle = $images_collection->shuffle();
-
-            for ($index = 0; $index < sizeof($images_collection_shuffle->toArray()); $index++) {
-                for ($index2 = 0; $index2 < sizeof($images_collection_shuffle[$index]->toArray()); $index2++) {
-                    $collection_2->push($images_collection_shuffle[$index][$index2]);
-                }
-            }
-
-            return $collection_2;
-        }*/
 }

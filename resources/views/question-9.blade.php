@@ -7,7 +7,8 @@
 
         <br>
 
-        <p class="text-2xl font-bold text-center">{{ $question->question }}</p>
+        <p class="text-2xl font-bold text-center">Find this image</p>
+        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-64 mx-auto" alt="dfvf">
 
         <input type="hidden" value="{{ $question['id'] }}" name="question_id" id="question_id">
         <input type="hidden" value="{{ session('participant')['id'] }}" name="participant_id" id="participant_id">

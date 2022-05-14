@@ -7,7 +7,15 @@
 
         <br>
 
-        <p class="text-2xl font-bold text-center">{{ $question->question }}</p>
+        {{--mode non follow--}}
+        <p class="text-2xl font-bold text-center">Find this image</p>
+        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
+
+        {{--mode follow--}}
+        {{--<div class="sticky z-10 top-0 bg-white">
+            <p class="text-2xl font-bold text-center">Find this image</p>
+            <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
+        </div>--}}
 
         <br>
 

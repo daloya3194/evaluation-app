@@ -1,25 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-20">
+    <div class="container mx-auto mt-5">
 
         <h1 class="text-center text-5xl font-bold">Task 9</h1>
 
-        <br>
+{{--        <p class="text-2xl font-bold text-center">Find this image</p>--}}
+{{--        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-64 mx-auto" alt="dfvf">--}}
 
-        <p class="text-2xl font-bold text-center">Find this image</p>
-        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-64 mx-auto" alt="dfvf">
+        <div class="sticky z-10 top-0 bg-white mt-2">
+            <p class="text-2xl font-bold text-center">Find this image</p>
+            <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
+        </div>
 
         <input type="hidden" value="{{ $question['id'] }}" name="question_id" id="question_id">
         <input type="hidden" value="{{ session('participant')['id'] }}" name="participant_id" id="participant_id">
 
         <br>
         <br>
-        <br>
 
         <div class="grid grid-cols-3 gap-7">
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_1">
-                <img class="w-full h-96 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_1->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_1->random()->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1->random()->path }}" alt="dfsd"></div>
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1->random()->path }}" alt="dfsd"></div>
@@ -27,7 +29,7 @@
                 <span class="text-xl font-bold bg-transparent">Cluster 1</span>
             </button>
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_2">
-                <img class="w-full h-96 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_2->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_2->random()->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2->random()->path }}" alt="dfsd"></div>
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2->random()->path }}" alt="dfsd"></div>
@@ -35,7 +37,7 @@
                 <span class="text-xl font-bold bg-transparent">Cluster 2</span>
             </button>
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_3">
-                <img class="w-full h-96 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_3->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_3->random()->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3->random()->path }}" alt="dfsd"></div>
                     <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3->random()->path }}" alt="dfsd"></div>
@@ -63,6 +65,10 @@
                     <button type="button"
                             class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                             data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="sticky z-10 top-0 bg-white pb-2">
+                    <p class="text-2xl font-bold text-center">Find this image</p>
+                    <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
                 </div>
                 <div class="modal-body relative p-4">
                     <form>
@@ -111,6 +117,10 @@
                             class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                             data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="sticky z-10 top-0 bg-white pb-2">
+                    <p class="text-2xl font-bold text-center">Find this image</p>
+                    <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
+                </div>
                 <div class="modal-body relative p-4">
                     <form>
                         @csrf
@@ -157,6 +167,10 @@
                     <button type="button"
                             class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                             data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="sticky z-10 top-0 bg-white pb-2">
+                    <p class="text-2xl font-bold text-center">Find this image</p>
+                    <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
                 </div>
                 <div class="modal-body relative p-4">
                     <form>

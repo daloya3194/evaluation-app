@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mx-auto mt-20">
+    <div class="container mx-auto mt-5">
 
         <h1 class="text-center text-5xl font-bold">Demo Task</h1>
 
         <br>
 
         {{--mode non follow--}}
-        <p class="text-2xl font-bold text-center">Find this image</p>
-        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
+{{--        <p class="text-2xl font-bold text-center">Find this image</p>--}}
+{{--        <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">--}}
 
         {{--mode follow--}}
-        {{--<div class="sticky z-10 top-0 bg-white">
+        <div class="sticky z-10 top-0 bg-white">
             <p class="text-2xl font-bold text-center">Find this image</p>
             <img src="{{ \App\Models\Image::find($question->image_id)->path }}" class="h-56 mx-auto" alt="dfvf">
-        </div>--}}
+        </div>
 
         <br>
 

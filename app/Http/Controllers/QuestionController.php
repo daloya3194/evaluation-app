@@ -6,18 +6,23 @@ use App\Models\Image;
 use App\Models\Question;
 use App\Models\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 class QuestionController extends Controller
 {
     public function question($question_number)
     {
         $question = Question::with(['cluster'])->where('slug', 'question-' . $question_number)->first();
+        $response_image = Image::find($question->image_id);
+        $images_to_shuffle = Image::all()->shuffle();
+
+        $images = $this->getImageWithTheCorrectPosition($images_to_shuffle, $response_image);
+
+        session()->put('image_position', $images->search($response_image));
         session()->put('start_time', microtime(true));
 
         return view('question-' . $question_number, [
             'question' => $question,
-            'images' => $this->getShuffleImages(),
+            'images' => $images,
         ]);
     }
 
@@ -41,14 +46,34 @@ class QuestionController extends Controller
     public function question_next_step($question_number)
     {
         $question = Question::with(['cluster'])->where('slug', 'question-' . $question_number)->first();
-        $images = $this->getImagesPerCluster();
+        $response_image = Image::find($question->image_id);
+
+        $cluster_1 = Image::where('cluster_id', 1)->get()->shuffle();
+        $cluster_2 = Image::where('cluster_id', 2)->get()->shuffle();
+        $cluster_3 = Image::where('cluster_id', 3)->get()->shuffle();
+
+        if ($response_image->cluster_id == 1) {
+            $cluster_1 = $this->getImageWithTheCorrectPosition($cluster_1, $response_image);
+            session()->put('image_position', $cluster_1->search($response_image));
+        }
+
+        if ($response_image->cluster_id == 2) {
+            $cluster_2 = $this->getImageWithTheCorrectPosition($cluster_2, $response_image);
+            session()->put('image_position', $cluster_2->search($response_image));
+        }
+
+        if ($response_image->cluster_id == 3) {
+            $cluster_3 = $this->getImageWithTheCorrectPosition($cluster_3, $response_image);
+            session()->put('image_position', $cluster_3->search($response_image));
+        }
+
         session()->put('start_time', microtime(true));
 
         return view('question-' . $question_number, [
             'question' => $question,
-            'cluster_1' => $images['cluster_1'],
-            'cluster_2' => $images['cluster_2'],
-            'cluster_3' => $images['cluster_3'],
+            'cluster_1' => $cluster_1,
+            'cluster_2' => $cluster_2,
+            'cluster_3' => $cluster_3,
         ]);
     }
 
@@ -67,6 +92,7 @@ class QuestionController extends Controller
                     'image_id' => $request->get('image_id'),
                     'time' => date('H:i:s', $end_time - session('start_time')),
                     'true' => $question->image_id == $request->get('image_id'),
+                    'image_position' => session('image_position'),
                 ]);
             } else {
                 \App\Models\Response::create([
@@ -75,6 +101,7 @@ class QuestionController extends Controller
                     'image_id' => $request->get('image_id'),
                     'time' => date('H:i:s', $end_time - session('start_time')),
                     'true' => $question->image_id == $request->get('image_id'),
+                    'image_position' => session('image_position'),
                 ]);
             }
 
@@ -83,23 +110,17 @@ class QuestionController extends Controller
         return false;
     }
 
-    private function getShuffleImages()
+    private function getImageWithTheCorrectPosition($images_to_shuffle, $response_image)
     {
-        //Activer ou desactiver le melange de l'image
-//        return Image::all();
-        return Image::all()->shuffle();
+        $loop = true;
+        do {
+            $images = $images_to_shuffle->shuffle();
+            if ($images->search($response_image) > 12) {
+                $loop = false;
+            }
+        }while($loop);
+
+        return $images;
     }
 
-    private function getImagesPerCluster()
-    {
-        $cluster_1 = Image::inRandomOrder()->where('cluster_id', 1)->get();
-        $cluster_2 = Image::inRandomOrder()->where('cluster_id', 2)->get();
-        $cluster_3 = Image::inRandomOrder()->where('cluster_id', 3)->get();
-
-        return [
-            'cluster_1' => $cluster_1,
-            'cluster_2' => $cluster_2,
-            'cluster_3' => $cluster_3,
-        ];
-    }
 }

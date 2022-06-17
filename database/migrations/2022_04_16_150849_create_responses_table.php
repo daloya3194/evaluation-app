@@ -20,6 +20,7 @@ class CreateResponsesTable extends Migration
             $table->foreignId('image_id')->nullable()->constrained()->onDelete('no action');
             $table->time('time')->nullable();
             $table->boolean('true')->nullable();
+            $table->integer('image_position')->nullable();
             $table->timestamps();
         });
     }

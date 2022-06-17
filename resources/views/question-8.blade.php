@@ -21,26 +21,26 @@
 
         <div class="grid grid-cols-3 gap-7">
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_1">
-                <img class="w-full h-80  object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_1->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_1[0]->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1->random()->path }}" alt="dfsd"></div>
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1->random()->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1[1]->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_1[2]->path }}" alt="dfsd"></div>
                 </div>
                 <span class="text-xl font-bold bg-transparent">Cluster 1</span>
             </button>
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_2">
-                <img class="w-full h-80  object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_2->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_2[0]->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2->random()->path }}" alt="dfsd"></div>
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2->random()->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2[1]->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_2[2]->path }}" alt="dfsd"></div>
                 </div>
                 <span class="text-xl font-bold bg-transparent">Cluster 2</span>
             </button>
             <button type="button" class="" data-bs-toggle="modal" data-bs-target="#modal_cluster_3">
-                <img class="w-full h-80  object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_3->random()->path }}" alt="dasfsf">
+                <img class="w-full h-80 object-cover mx-auto shadow-sm hover:shadow-2xl hover:scale-105 mb-7" src="{{ $cluster_3[0]->path }}" alt="dasfsf">
                 <div class="grid grid-cols-2 gap-3 mb-5">
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3->random()->path }}" alt="dfsd"></div>
-                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3->random()->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3[1]->path }}" alt="dfsd"></div>
+                    <div><img class="w-full h-36 object-cover shadow-sm" src="{{ $cluster_3[2]->path }}" alt="dfsd"></div>
                 </div>
                 <span class="text-xl font-bold bg-transparent">Cluster 3</span>
             </button>
